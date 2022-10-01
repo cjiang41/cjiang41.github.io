@@ -1,0 +1,654 @@
+<!DOCTYPE html> 
+<html> 
+    <head>
+        <!-- <title>My First Headings</title>  -->
+        <style>
+            body {
+                /* width: 1000px; */
+                margin: 0 auto;
+
+                
+                background-color: #e5e5e5;
+            }
+            .searchBox{
+                width: 720px;
+                height: 550px;
+                margin-top: 20px;
+                margin-left: 20%;
+                border: 5px rgb(231, 228, 228);
+                /* border-style: outset; */
+                border-style: solid;
+                margin:0 auto;
+
+                background-color: white;
+    
+
+                /* background-color: aqua; */
+            }
+            .text-block {
+                /* margin-top: 20px;
+                margin-left: 20px; */
+                top: 5px;
+                left: 5px;
+                color: rgb(255, 255, 255);
+                padding-left: 20px;
+                padding-right: 20px;
+                position: absolute;
+            }
+            img.banner{
+                width: 720px;
+                height: 405px;
+                margin: -250px 0 0 0px;
+            }
+            .banner{
+                width: 720px;
+                height: 155px;
+                overflow: hidden;
+                position: relative;
+                border:none;
+            }
+            label.searchForm{
+                color:#4e6ead;
+                font-size: 20px;
+                margin-left: 0px;
+                /* background-color: #000000; */
+                font-style: Arial;
+
+                margin-bottom:1px;
+            }
+            .searchForm{
+                margin-left: 20px;
+            }
+       
+
+            .textInput{
+                display:block;
+                margin-top: 10px;
+            }
+
+     
+            .inlineBlock{
+                display:inline-block;
+            }
+
+            hr.searchBox{
+                background-color:#4e6ead;
+                height:2px;
+                margin-left:0px;
+                margin-top: 10px;
+                width: 700px;
+                border:none;
+            }
+            label.checkBox {
+                margin-top: 10px;
+                font-size: 25px;
+                color:#4e6ead;
+                display:inline-block;
+                padding-bottom:0px;
+            }
+
+
+            input.checkBox{
+                display:inline-block;
+                width: 20px;
+                height: 20px;
+            }
+            input.searchButton{
+                color:white;
+                width:150px;
+                height:50px;
+                font-size:30px;
+                transition-duration: 0.4s;
+                cursor: pointer;
+                background-color: #4e6ead;
+                border:none;
+                border-bottom: 5px solid #384c78;
+                /* border-style: outset; */
+            }
+
+
+            input.searchButton:hover {
+                background-color: #788fbd;
+                color: white;
+                border-bottom: 5px solid #384c78;
+                
+            }
+
+
+            input.textBox{
+                padding-top:0px;
+                margin-top:2px;
+                font-size: 25px;
+                margin-top:5px;
+            }
+            button.clearButton{
+                width:150px;
+                height:50px;
+                font-size:30px;
+                display:inline-block;
+                color: white; 
+                background-color: #ffb706;
+                transition-duration: 0.4s;
+                cursor: pointer;
+                
+
+                border:none;
+                border-bottom: 5px solid #fb8500;
+
+                /* border-style: outset; */
+            }
+            button.clearButton:hover{
+                background-color: #eec96d; 
+                color: white; 
+                border-bottom: 5px solid #fb8500;
+                /* border-style: outset; */
+            }
+
+
+            image.tableImage{
+                width:150px;
+                height:150px;
+            }
+
+            table, td, th{
+            border: solid 2px lightgrey;
+            border-collapse: collapse;
+            }
+
+            a.table:hover {
+                color:#585454;
+            }
+
+            p.detail{
+                margin-top: 3px;
+                font-size: 15px;
+            }
+            b.detail{
+                font-size: 25px;
+            }
+
+            .detailCell{
+                width : 400px;
+                height :80px;
+            }
+
+            .detailRow{
+                width : 800px;
+                display: flex;
+            }
+
+
+        </style>
+    </head> 
+    <body> 
+        <div class = "searchBox">
+            <div class = "banner">
+                <!-- <img class="banner" src="banner.jpeg"/> -->
+                <img class="banner" src= "static/banner.jpeg"/>
+                <div class="text-block">
+                    <h4>Nature</h4>
+                    <p>What a beautiful sunrise</p>
+                </div>
+            </div>
+            <div class = "searchForm">
+                <form id = "searchFormID" onsubmit = "search(); return false" >
+                    <div class = "textInput">
+                        <label class = "searchForm" for = "keyword">Keyword <span style = "color:red">&#42 </span></label>
+                        <input class = "textBox" name="keyword" id = "keyword" type="text" size = "48"> 
+                    </div>
+                    
+                    <div style = "height: 70px;">
+                        <div class = "textInput" style = " width: 150px; display: inline-block">
+                            <label class = "searchForm" for = "distance">Distance(miles) </label>
+                            <input  class = "textBox" name="distance" id = "distance" type="text" value = 10 style = "width: 150px;"> 
+                        </div>
+                        <div style = "display: inline-block; margin-left: 215px; width:300px; margin-top:10px;">
+                            <label class = "searchForm" for = "category">Category</label>
+                            <select  id="category" name="category" style = "width: 300px; font-size: 25px; margin-top:5px">
+                                <option value="Default">Default</option>
+                                <option value="Arts & Entertainment">Arts & Entertainment</option>
+                                <option value="Health & Medical">Health & Medical</option>
+                                <option value="Food">Food</option>
+                                <option value="Professional Services">Professional Services</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                  
+                    <div class = "textInput" >
+                        <label class = "searchForm" for = "location">Location <span style = "color:red">&#42 </span></label>
+                        <input class = "textBox" name="location" id = "location" type="text" size = "48">
+                    </div>
+                
+                    <hr  class = "searchBox">
+                    <label class = "checkBox" for = "auto-detect">Want us to auto-detect your location? Check here</label>
+                    <input class = "checkBox" type="checkbox" id="auto-detect" name="auto-detect">
+                    <div style = " margin-top: 30px;">
+                        <input type="submit" class="searchButton"  value="Submit" />
+                        <button class = "clearButton" onclick="clearform()">Clear</button>
+                    </div> 
+                </form>
+            </div>
+        </div>
+
+        <div class = "resultArea" style = "margin:0 auto; width: 1000px;">
+
+            <div id="noRecordsDisplay" style = "margin:0 auto; width: 1000px;">
+
+            </div>
+
+
+            <table id = "resultTable" style = "margin:0 auto; width: 1000px; background-color: white;">
+                <thead id="tableHead" align = "center">
+                </thead>
+                <tbody id="tableBody" align = "center">
+                    
+                </tbody>
+            </table>
+
+
+            <div id = "detailArea" style = "margin: 30px auto 0;; width: 800px; background-color: white;">
+
+
+            </div>
+
+
+        </div>
+
+
+
+    <script>
+        var searchResult;
+        // var backend_base_url = "http://127.0.0.1:8080/";
+        var backend_base_url = "https://pythonprojecthw6.us-west2.r.appspot.com/"
+
+
+        function clearform(){
+        // clear form
+            document.getElementById("searchFormID").reset();
+            clearResultArea();
+
+        }
+
+
+        function clearResultArea(){
+            document.getElementById("noRecordsDisplay").innerHTML = '';
+            document.getElementById("tableHead").innerHTML = '';
+            document.getElementById("tableBody").innerHTML = '';
+            document.getElementById("detailArea").innerHTML = '';
+
+        }
+
+
+
+        function search(){
+
+            clearResultArea();
+            // document.getElementById("searchFormID").reset();
+            const keyword = document.getElementById("keyword").value;
+            const category = document.getElementById("category").value;
+            const distance = document.getElementById("distance").value;
+            const location = document.getElementById("location").value;
+            console.log("keyword: " + keyword);
+            console.log("category: " +category);
+            console.log("distance: " +distance);
+            console.log("location: " +location);
+            if(document.getElementById("auto-detect").checked){
+
+                console.log("getting ip");
+
+                ipinfo_url = "https://ipinfo.io/?token=5acc8d70ff2f72";
+
+                fetch(ipinfo_url)
+                    .then((response) => response.json())
+                    .then((ip_data) => {
+                        console.log(ip_data);
+                        const position = ip_data["loc"].split(",");
+                        const latitude = position[0];
+                        const longitude = position[1];
+                        console.log("geo:", latitude, longitude);
+                        create_table(keyword, category, distance, latitude, longitude);
+
+                    });
+            }else{
+                googleGeoApi_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyDWzqkvWeohV2UsN4CCvKTn_NxnO7A51ow";
+                console.log(googleGeoApi_url);
+
+                fetch(googleGeoApi_url)
+                    .then((response) => response.json())
+                    .then((geo_data) => {
+                        console.log(geo_data);
+                        const latitude = geo_data["results"][0]["geometry"]["location"]["lat"].toString();
+                        const longitude = geo_data["results"][0]["geometry"]["location"]["lng"].toString();
+                        console.log("geo:", latitude, longitude);
+                        create_table(keyword, category, distance, latitude, longitude);
+                        
+                    });
+            }
+
+        }
+
+        function create_table(keyword, category, distance, latitude, longitude){
+            distance = Math.round(distance*1609);
+      
+
+            var backend_url = backend_base_url + "search?term=" + keyword + "&latitude=" + latitude + "&longitude=" + longitude + "&categories=" + category + "&radius=" + distance;
+            console.log(backend_url);
+
+            fetch(backend_url)
+                    .then((response) => response.json())
+                    .then((results) => {
+                console.log(results)
+
+                if( results["businesses"].length == 0){
+                    var resultDiv = document.getElementById('noRecordsDisplay')
+                    resultDiv.innerHTML = '<div id="noRecords" align="center" style="background-color: white; font-size:25px; margin:0 auto;">No record has been found</div>';
+                } else{
+
+                    var tableHead = document.getElementById('tableHead');
+                    var tableHeadRow = document.createElement('tr');
+                    tableHeadRow.setAttribute("height", "50px");
+                    tableHeadRow.setAttribute("bgcolor", "#4e6ead");
+                
+                    tableHeadRow.innerHTML = '<th style="width:5% ">No.</th><th style="width:15%">Image</th><th onclick = "sortTable(2)" style="width:40%">Business Name</th><th onclick = "sortTable(3)" style="width:20%">Rating</th><th onclick = "sortTable(4)" style="width:20%">Distance(miles)</th>'
+                    tableHead.appendChild(tableHeadRow);
+
+
+                    var tableBody = document.getElementById('tableBody');
+
+                    searchResult = results["businesses"];
+
+                    for(var i = 0; i < searchResult.length; ++i){
+                                var newTableRow = document.createElement('tr');
+
+                                var image_url = '';
+                                if(searchResult[i].hasOwnProperty("image_url")){
+                                    image_url = searchResult[i]["image_url"];
+                                }
+
+                                var businessName = '';
+                                if(searchResult[i].hasOwnProperty("name")){
+                                    businessName = searchResult[i]["name"];
+                                }
+
+                                var rating = '';
+                                if(searchResult[i].hasOwnProperty("rating")){
+                                    rating = searchResult[i]["rating"];
+                                }
+
+                                var distance = 0;
+                                if(searchResult[i].hasOwnProperty("distance")){
+                                    distance = Number((searchResult[i]["distance"]/1609).toFixed(2));
+                                }
+
+                              
+                                var numTd = document.createElement("td");
+                                numTd.innerHTML = i;
+                                newTableRow.appendChild(numTd);
+
+                                var imgTd = document.createElement("td");
+                                var img = document.createElement("img")
+                                img.style.width = "150px";
+                                img.style.height = "150px";
+                                img.src = image_url;
+                                imgTd.appendChild(img);
+                                newTableRow.appendChild(imgTd);
+
+                                var nameTd = document.createElement("td");
+                                var nameA = document.createElement("a");
+                                let id = searchResult[i]["id"];
+                                nameA.innerHTML = businessName;
+                                nameA.className = "table";
+                                nameA.href = "#detailArea";
+                                nameA.addEventListener('click', function(){
+                                    displayDetail(id);
+                                }); 
+                                nameTd.appendChild(nameA);
+                                newTableRow.appendChild(nameTd);
+
+
+
+                                var rateTd = document.createElement("td");
+                                rateTd.innerHTML = rating;
+                                newTableRow.appendChild(rateTd);
+
+                                var disTd = document.createElement("td");
+                                disTd.innerHTML = distance;
+                                newTableRow.appendChild(disTd);
+             
+                                // newTableRow.innerHTML = '<td>' + i + '</td><td>'
+                                //                         + '<img  src=' + image_url  +  ' style="width: 150px; height:150px"></img>'+ '</td><td onClick = "displayDetail(' + id +')">'
+                                //                         + businessName + '</td><td>'
+                                //                         + rating +'</td><td>'
+                                //                         + distance +'</td>';
+                                tableBody.appendChild(newTableRow);
+                    }       
+                }
+                document.getElementById('resultTable').scrollIntoView();     
+            });
+
+        }
+
+        function sortTable(index){
+            const table = document.getElementById('resultTable');
+            var tableBody = table.querySelector('tbody');
+            const rows = tableBody.querySelectorAll('tr');
+
+            const newRows = Array.from(rows);
+
+            if(index == 3){
+                // Sort rows by the content of cells
+                newRows.sort(function (rowA, rowB) {
+                    // Get the content of cells
+                    const cellA = rowA.querySelectorAll('td')[index].innerHTML;
+                    const cellB = rowB.querySelectorAll('td')[index].innerHTML;
+
+                    switch (true) {
+                        case cellA > cellB:
+                            return -1;
+                        case cellA < cellB:
+                            return 1;
+                        case cellA === cellB:
+                            return 0;
+                    }
+                });
+
+
+            } else {
+                // Sort rows by the content of cells
+                newRows.sort(function (rowA, rowB) {
+                // Get the content of cells
+                const cellA = rowA.querySelectorAll('td')[index].innerHTML;
+                const cellB = rowB.querySelectorAll('td')[index].innerHTML;
+
+                switch (true) {
+                    case cellA > cellB:
+                        return 1;
+                    case cellA < cellB:
+                        return -1;
+                    case cellA === cellB:
+                        return 0;
+                    }
+                });
+            }
+            // Remove old rows
+            tableBody.innerHTML = '';
+
+            for(var i = 0; i < newRows.length; i++){
+                newRow = newRows[i];
+                newRow.children[0].innerHTML = "No." + i;
+                tableBody.appendChild(newRow);
+            }
+        }
+
+    function displayDetail(id){
+
+        const backend_url = backend_base_url + "searchDetail?id=" + id;
+        console.log(backend_url);
+
+        fetch(backend_url)
+                    .then((response) => response.json())
+                    .then((results) => {
+                console.log(results)
+
+
+                var detailArea = document.getElementById('detailArea');
+                detailArea.innerHTML = '';
+
+
+                var nameRow = document.createElement("div");
+                nameRow.style.textAlign = "center";
+                nameRow.style.fontSize = "25px";
+                nameRow.style.width = "800px";
+                nameRow.style.height = "50px";
+                nameRow.style.paddingTop = "50px";
+                var name = document.createElement("b");
+                // name.style.marginTop = "50px";
+                name.innerHTML = results["name"];
+                nameRow.appendChild(name);
+                detailArea.appendChild(nameRow);
+
+                var nameHr = document.createElement("hr");
+                nameHr.style.backgroundColor = "#e5e5e5";
+                nameHr.style.margin = "0 auto";
+                nameHr.style.width = "760px";
+                nameHr.style.height = "5px";
+                nameHr.style.border = "none";
+                detailArea.appendChild(nameHr);
+                
+                var firstRow = document.createElement("div");
+                firstRow.style.marginTop = "50px";
+                firstRow.className = "detailRow";
+                var statusDiv = document.createElement("div");
+                statusDiv.className = "detailCell";
+                statusDiv.style.backgroundColor = "green";
+                if(results.hasOwnProperty("hours") && results["hours"][0].hasOwnProperty("is_open_now")){
+                    var statusTitle = document.createElement("b");
+                    statusTitle.className = "detail";
+                    statusTitle.innerHTML = "Status";
+                    var status = document.createElement("p");
+                    status.className = "detail";
+                    console.log(results["hours"][0]["is_open_now"]);
+                    if(results["hours"][0]["is_open_now"]){
+                        status.innerHTML = "Open Now";
+                    }else{
+                        status.innerHTML = "Closed";
+                    }
+                    statusDiv.appendChild(statusTitle);
+                    statusDiv.appendChild(status);
+                }
+
+                firstRow.appendChild(statusDiv);
+
+                var categoryDiv = document.createElement("div");
+                categoryDiv.className = "detailCell";
+                if(results.hasOwnProperty("categories") && results["categories"].length > 0){
+                    var categoryTitle = document.createElement("b");
+                    categoryTitle.className = "detail";
+                    categoryTitle.innerHTML = "Categories";
+                    var category = document.createElement("p");
+                    category.className = "detail";
+                    var categoriesS = results["categories"][0]["title"];
+                    for(var i = 1; i < results["categories"].length; i++){
+                        categoriesS += "|" + results["categories"][i]["title"];
+                    }
+                    category.innerHTML = categoriesS;
+                    categoryDiv.appendChild(categoryTitle);
+                    categoryDiv.appendChild(category);
+                }
+                firstRow.appendChild(categoryDiv);
+                detailArea.appendChild(firstRow);
+
+
+                var secondRow = document.createElement("div");
+                secondRow.className = "detailRow";
+                var addressDiv = document.createElement("div");
+                addressDiv.className = "detailCell";
+                if(results.hasOwnProperty("location") && results["location"].hasOwnProperty("display_address")){
+                    var addressTitle = document.createElement("b");
+                    addressTitle.className = "detail";
+                    addressTitle.innerHTML = "Address";
+                    var address = document.createElement("p");
+                    address.className = "detail";
+                    address.innerHTML = results["location"]["display_address"][0] + ", " +  results["location"]["display_address"][1];
+                    addressDiv.appendChild(addressTitle);
+                    addressDiv.appendChild(address);
+                }
+                secondRow.appendChild(addressDiv);
+
+                var phoneDiv = document.createElement("div");
+                phoneDiv.className = "detailCell";
+                if(results.hasOwnProperty("display_phone")){
+                    var phoneTitle = document.createElement("b");
+                    phoneTitle.className = "detail";
+                    phoneTitle.innerHTML = "Phone Number";
+                    var phone = document.createElement("p");
+                    phone.className = "detail";
+
+                    phone.innerHTML = results["display_phone"];
+             
+                    phoneDiv.appendChild(phoneTitle);
+                    phoneDiv.appendChild(phone);
+                }
+                secondRow.appendChild(phoneDiv);
+                detailArea.appendChild(secondRow);
+
+                var thirdRow = document.createElement("div");
+                thirdRow.className = "detailRow";
+                var transactionDiv = document.createElement("div");
+                transactionDiv.className = "detailCell";
+                if(results.hasOwnProperty("transactions") && results["transactions"].length > 0){
+                    var transactionTitle = document.createElement("b");
+                    transactionTitle.className = "detail";
+                    transactionTitle.innerHTML = "Transactions Supported";
+                    var transaction = document.createElement("p");
+                    transaction.className = "detail";
+                    transaction.innerHTML = results["location"]["display_address"][0] + ", " +  results["location"]["display_address"][1];
+                    var transactionS = results["transactions"][0];
+                    for(var i = 1; i < results["transactions"].length; i++){
+                        transactionS += "|" + results["transactions"][i];
+                    }
+                    transaction.innerHTML = transactionS;
+                    transactionDiv.appendChild(transactionTitle);
+                    transactionDiv.appendChild(transaction);
+                }
+                thirdRow.appendChild(transactionDiv);
+
+                var priceDiv = document.createElement("div");
+                priceDiv.className = "detailCell";
+                if(results.hasOwnProperty("display_phone")){
+                    var priceTitle = document.createElement("b");
+                    priceTitle.className = "detail";
+                    priceTitle.innerHTML = "Price";
+                    var price = document.createElement("p");
+                    price.className = "detail";;
+                    price.innerHTML = results["price"];
+                    priceDiv.appendChild(priceTitle);
+                    priceDiv.appendChild(price);
+                }
+                thirdRow.appendChild(priceDiv);
+                detailArea.appendChild(thirdRow);
+
+                var urlDiv = document.createElement("div");
+                urlDiv.className = "detailCell";
+                if(results.hasOwnProperty("url")){
+                    var urlTitle = document.createElement("b");
+                    urlTitle.className = "detail";
+                    urlTitle.innerHTML = "More info";
+                    var url = document.createElement("a");
+                    url.style.fontSize = "15px";
+                    url.href = results["url"];
+                    url.target = "_blank";
+                    url.innerHTML = "Yelp";
+                    urlDiv.appendChild(urlTitle);
+                    urlDiv.appendChild(document.createElement("br"));
+                    urlDiv.appendChild(url);
+                }
+                detailArea.appendChild(urlDiv);
+
+            });
+    }
+    </script>  
+        
+    </body> 
+</html>
