@@ -637,15 +637,13 @@
 
                 var phoneDiv = document.createElement("div");
                 phoneDiv.className = "detailCell";
-                if(results.hasOwnProperty("display_phone")){
+                if(results.hasOwnProperty("display_phone") && results["display_phone"].length > 0){
                     var phoneTitle = document.createElement("b");
                     phoneTitle.className = "detail";
                     phoneTitle.innerHTML = "Phone Number";
                     var phone = document.createElement("p");
                     phone.className = "detail";
-
                     phone.innerHTML = results["display_phone"];
-             
                     phoneDiv.appendChild(phoneTitle);
                     phoneDiv.appendChild(phone);
                 }
@@ -675,7 +673,7 @@
 
                 var priceDiv = document.createElement("div");
                 priceDiv.className = "detailCell";
-                if(results.hasOwnProperty("display_phone")){
+                if(results.hasOwnProperty("price")){
                     var priceTitle = document.createElement("b");
                     priceTitle.className = "detail";
                     priceTitle.innerHTML = "Price";
