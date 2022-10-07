@@ -200,6 +200,8 @@
             img.detail{
                 max-width:262px;
                 height: auto;
+                max-height: 400px;
+
             }
 
             b.imageText{
@@ -545,12 +547,12 @@
                 var detailArea = document.getElementById('detailArea');
                 detailArea.innerHTML = '';
 
-
                 var nameRow = document.createElement("div");
                 nameRow.style.textAlign = "center";
                 nameRow.style.fontSize = "25px";
                 nameRow.style.width = "800px";
                 nameRow.style.height = "50px";
+                nameRow.style.marginLeft = "15px";
                 nameRow.style.paddingTop = "50px";
                 var name = document.createElement("b");
                 // name.style.marginTop = "50px";
