@@ -1,6 +1,7 @@
 <!DOCTYPE html> 
 <html> 
     <head>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
         <!-- <title>My First Headings</title>  -->
         <style>
             body {
@@ -25,7 +26,7 @@
 
                 /* background-color: aqua; */
             }
-            .text-block {
+            div.banner_text {
                 /* margin-top: 20px;
                 margin-left: 20px; */
                 top: 5px;
@@ -52,7 +53,7 @@
                 font-size: 20px;
                 margin-left: 0px;
                 /* background-color: #000000; */
-                font-style: Arial;
+                font-family: 'Lato', sans-serif;
 
                 margin-bottom:1px;
             }
@@ -66,7 +67,6 @@
                 margin-top: 10px;
             }
 
-     
             .inlineBlock{
                 display:inline-block;
             }
@@ -84,9 +84,9 @@
                 font-size: 25px;
                 color:#4e6ead;
                 display:inline-block;
+                font-family: 'Lato', sans-serif;
                 padding-bottom:0px;
             }
-
 
             input.checkBox{
                 display:inline-block;
@@ -106,14 +106,12 @@
                 /* border-style: outset; */
             }
 
-
             input.searchButton:hover {
                 background-color: #788fbd;
                 color: white;
                 border-bottom: 5px solid #384c78;
                 
             }
-
 
             input.textBox{
                 padding-top:0px;
@@ -137,6 +135,7 @@
 
                 /* border-style: outset; */
             }
+
             button.clearButton:hover{
                 background-color: #eec96d; 
                 color: white; 
@@ -153,28 +152,61 @@
             table, td, th{
             border: solid 2px lightgrey;
             border-collapse: collapse;
+            /* cursor: pointer; */
             }
 
-            a.table:hover {
+            p.table:hover {
                 color:#585454;
+                cursor: pointer;
             }
 
             p.detail{
                 margin-top: 3px;
                 font-size: 15px;
-            }
-            b.detail{
-                font-size: 25px;
+                font-family: 'Lato', sans-serif;
             }
 
-            .detailCell{
+            b.detail{
+                font-size: 20px;
+            }
+
+            div.detailCell{
                 width : 400px;
                 height :80px;
             }
 
-            .detailRow{
+            div.detailRow{
                 width : 800px;
                 display: flex;
+                margin-left: 15px;
+            }
+
+            div.detailImageRow{
+                width: 800px;
+                height: 400px;
+                margin-left:15px;
+                display: flex;
+            }
+
+            div.detailImageCell{
+                width:262px;
+                height: 400px;
+                border:2px rgb(231, 228, 228);
+                border-style: solid;
+                position: relative;
+            }
+
+            img.detail{
+                max-width:262px;
+                height: auto;
+            }
+
+            b.imageText{
+                bottom: 5px;
+                left: 100px;
+                color: black;
+                position: absolute;
+                font-size: 15px;
             }
 
 
@@ -185,7 +217,7 @@
             <div class = "banner">
                 <!-- <img class="banner" src="banner.jpeg"/> -->
                 <img class="banner" src= "static/banner.jpeg"/>
-                <div class="text-block">
+                <div class="banner_text">
                     <h4>Nature</h4>
                     <p>What a beautiful sunrise</p>
                 </div>
@@ -194,22 +226,23 @@
                 <form id = "searchFormID" onsubmit = "search(); return false" >
                     <div class = "textInput">
                         <label class = "searchForm" for = "keyword">Keyword <span style = "color:red">&#42 </span></label>
-                        <input class = "textBox" name="keyword" id = "keyword" type="text" size = "48"> 
+                        <input class = "textBox" name="keyword" id = "keyword" type="text" size = "48" requried title = "Please fill out this field"> 
                     </div>
                     
                     <div style = "height: 70px;">
                         <div class = "textInput" style = " width: 150px; display: inline-block">
                             <label class = "searchForm" for = "distance">Distance(miles) </label>
-                            <input  class = "textBox" name="distance" id = "distance" type="text" value = 10 style = "width: 150px;"> 
+                            <input  class = "textBox" name="distance" id = "distance" type="text" value = 10 style = "width: 150px;" requried title = "Please fill out this field"> 
                         </div>
                         <div style = "display: inline-block; margin-left: 215px; width:300px; margin-top:10px;">
                             <label class = "searchForm" for = "category">Category</label>
                             <select  id="category" name="category" style = "width: 300px; font-size: 25px; margin-top:5px">
-                                <option value="Default">Default</option>
-                                <option value="Arts & Entertainment">Arts & Entertainment</option>
-                                <option value="Health & Medical">Health & Medical</option>
-                                <option value="Food">Food</option>
-                                <option value="Professional Services">Professional Services</option>
+                                <option value="all">Default</option>
+                                <option value="arts,All">Arts & Entertainment</option>
+                                <option value="health,All">Health & Medical</option>
+                                <option value="hotelstravel,All">Hotels & Travel</option>
+                                <option value="food, All">Food</option>
+                                <option value="professional,All">Professional Services</option>
                             </select>
                         </div>
                     </div>
@@ -217,7 +250,7 @@
                   
                     <div class = "textInput" >
                         <label class = "searchForm" for = "location">Location <span style = "color:red">&#42 </span></label>
-                        <input class = "textBox" name="location" id = "location" type="text" size = "48">
+                        <input class = "textBox" name="location" id = "location" type="text" size = "48" required title = "Please fill out this field">
                     </div>
                 
                     <hr  class = "searchBox">
@@ -231,7 +264,7 @@
             </div>
         </div>
 
-        <div class = "resultArea" style = "margin:0 auto; width: 1000px;">
+        <div class = "resultArea" style = "margin:0 auto; width: 1000px; font-style: Arial">
 
             <div id="noRecordsDisplay" style = "margin:0 auto; width: 1000px;">
 
@@ -247,7 +280,7 @@
             </table>
 
 
-            <div id = "detailArea" style = "margin: 30px auto 0;; width: 800px; background-color: white;">
+            <div id = "detailArea" style = "margin: 30px auto 0;; width: 830px; background-color: white;">
 
 
             </div>
@@ -259,8 +292,12 @@
 
     <script>
         var searchResult;
-        // var backend_base_url = "http://127.0.0.1:8080/";
-        var backend_base_url = "https://pythonprojecthw6.wl.r.appspot.com/"
+        var backend_base_url = "http://127.0.0.1:8080/";
+        // var backend_base_url = "https://pythonprojecthw6.wl.r.appspot.com/"
+
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
 
 
         function clearform(){
@@ -318,11 +355,15 @@
                     .then((response) => response.json())
                     .then((geo_data) => {
                         console.log(geo_data);
-                        const latitude = geo_data["results"][0]["geometry"]["location"]["lat"].toString();
-                        const longitude = geo_data["results"][0]["geometry"]["location"]["lng"].toString();
-                        console.log("geo:", latitude, longitude);
-                        create_table(keyword, category, distance, latitude, longitude);
-                        
+                        if(geo_data["results"].length == 0){
+                            var resultDiv = document.getElementById('noRecordsDisplay')
+                            resultDiv.innerHTML = '<div id="noRecords" align="center" style="background-color: white; font-size:25px; margin:0 auto;">No record has been found</div>';
+                        }else{
+                            const latitude = geo_data["results"][0]["geometry"]["location"]["lat"].toString();
+                            const longitude = geo_data["results"][0]["geometry"]["location"]["lng"].toString();
+                            console.log("geo:", latitude, longitude);
+                            create_table(keyword, category, distance, latitude, longitude);
+                        }
                     });
             }
 
@@ -330,8 +371,7 @@
 
         function create_table(keyword, category, distance, latitude, longitude){
             distance = Math.round(distance*1609);
-      
-
+    
             var backend_url = backend_base_url + "search?term=" + keyword + "&latitude=" + latitude + "&longitude=" + longitude + "&categories=" + category + "&radius=" + distance;
             console.log(backend_url);
 
@@ -340,7 +380,7 @@
                     .then((results) => {
                 console.log(results)
 
-                if( results["businesses"].length == 0){
+                if(! results.hasOwnProperty("businesses") || results["businesses"].length == 0){
                     var resultDiv = document.getElementById('noRecordsDisplay')
                     resultDiv.innerHTML = '<div id="noRecords" align="center" style="background-color: white; font-size:25px; margin:0 auto;">No record has been found</div>';
                 } else{
@@ -350,7 +390,7 @@
                     tableHeadRow.setAttribute("height", "50px");
                     tableHeadRow.setAttribute("bgcolor", "#4e6ead");
                 
-                    tableHeadRow.innerHTML = '<th style="width:5% ">No.</th><th style="width:15%">Image</th><th onclick = "sortTable(2)" style="width:40%">Business Name</th><th onclick = "sortTable(3)" style="width:20%">Rating</th><th onclick = "sortTable(4)" style="width:20%">Distance(miles)</th>'
+                    tableHeadRow.innerHTML = '<th style="width:5%">No.</th><th style="width:15%">Image</th><th onclick = "sortTable(2)" style="width:40%; cursor: pointer;">Business Name</th><th onclick = "sortTable(3)" style="width:20%; cursor: pointer;">Rating</th><th onclick = "sortTable(4)" style="width:20%; cursor: pointer;">Distance(miles)</th>'
                     tableHead.appendChild(tableHeadRow);
 
 
@@ -395,7 +435,7 @@
                                 newTableRow.appendChild(imgTd);
 
                                 var nameTd = document.createElement("td");
-                                var nameA = document.createElement("a");
+                                var nameA = document.createElement("p");
                                 let id = searchResult[i]["id"];
                                 nameA.innerHTML = businessName;
                                 nameA.className = "table";
@@ -521,18 +561,25 @@
                 firstRow.className = "detailRow";
                 var statusDiv = document.createElement("div");
                 statusDiv.className = "detailCell";
-                statusDiv.style.backgroundColor = "green";
                 if(results.hasOwnProperty("hours") && results["hours"][0].hasOwnProperty("is_open_now")){
                     var statusTitle = document.createElement("b");
                     statusTitle.className = "detail";
                     statusTitle.innerHTML = "Status";
                     var status = document.createElement("p");
                     status.className = "detail";
+                    status.style.height = "40px";
+                    status.style.width = "100px";
+                    status.style.textAlign = "center";
+                    status.style.lineHeight = "40px";
+                    status.style.borderRadius = "15px";
+
                     console.log(results["hours"][0]["is_open_now"]);
                     if(results["hours"][0]["is_open_now"]){
                         status.innerHTML = "Open Now";
+                        status.style.background = "green"; 
                     }else{
                         status.innerHTML = "Closed";
+                        status.style.background = "red"; 
                     }
                     statusDiv.appendChild(statusTitle);
                     statusDiv.appendChild(status);
@@ -545,7 +592,7 @@
                 if(results.hasOwnProperty("categories") && results["categories"].length > 0){
                     var categoryTitle = document.createElement("b");
                     categoryTitle.className = "detail";
-                    categoryTitle.innerHTML = "Categories";
+                    categoryTitle.innerHTML = "Category";
                     var category = document.createElement("p");
                     category.className = "detail";
                     var categoriesS = results["categories"][0]["title"];
@@ -604,9 +651,9 @@
                     var transaction = document.createElement("p");
                     transaction.className = "detail";
                     transaction.innerHTML = results["location"]["display_address"][0] + ", " +  results["location"]["display_address"][1];
-                    var transactionS = results["transactions"][0];
+                    var transactionS = capitalizeFirstLetter(results["transactions"][0]);
                     for(var i = 1; i < results["transactions"].length; i++){
-                        transactionS += "|" + results["transactions"][i];
+                        transactionS += "|" + capitalizeFirstLetter(results["transactions"][i]);
                     }
                     transaction.innerHTML = transactionS;
                     transactionDiv.appendChild(transactionTitle);
@@ -629,6 +676,8 @@
                 thirdRow.appendChild(priceDiv);
                 detailArea.appendChild(thirdRow);
 
+                var forthRow = document.createElement("div");
+                forthRow.className = "detailRow";
                 var urlDiv = document.createElement("div");
                 urlDiv.className = "detailCell";
                 if(results.hasOwnProperty("url")){
@@ -644,7 +693,55 @@
                     urlDiv.appendChild(document.createElement("br"));
                     urlDiv.appendChild(url);
                 }
-                detailArea.appendChild(urlDiv);
+                forthRow.appendChild(urlDiv);
+                detailArea.appendChild(forthRow);
+
+                
+                var imgRow = document.createElement("div");
+                imgRow.className = "detailImageRow";
+
+                if(results.hasOwnProperty("photos") && results["photos"].length > 0){
+
+                    var fCell = document.createElement("div");
+                    fCell.className = "detailImageCell";
+                    fCell.style.marginLeft = "0px";
+
+                    var fImage = document.createElement("img");
+                    fImage.className = "detail";
+                    fImage.src = results["photos"][0];
+                    fCell.appendChild(fImage);
+
+                    var fText = document.createElement("b");
+                    fText.className = "imageText";
+                    fText.innerHTML = "photo 1";
+                    fCell.appendChild(fText);
+                    imgRow.appendChild(fCell);
+
+                    for(var i = 1; i < Math.min(3, results["photos"].length); i++){
+
+                        var imgCell = document.createElement("div");
+                        imgCell.className = "detailImageCell";
+                        imgCell.style.marginLeft = "7px";
+
+                        var image = document.createElement("img");
+                        image.className = "detail";
+                        
+                        image.src = results["photos"][i];
+
+                        imgCell.appendChild(image);
+
+                        var imgText = document.createElement("b");
+                        imgText.className = "imageText";
+                        imgText.innerHTML = "photo " + (i + 1);
+                        imgCell.appendChild(imgText);
+                        imgRow.appendChild(imgCell);
+                    }
+
+                }
+
+                detailArea.appendChild(imgRow);
+                document.getElementById('detailArea').scrollIntoView();
+
 
             });
     }
