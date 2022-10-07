@@ -255,7 +255,7 @@
                 
                     <hr  class = "searchBox">
                     <label class = "checkBox" for = "auto-detect">Want us to auto-detect your location? Check here</label>
-                    <input class = "checkBox" type="checkbox" id="auto-detect" name="auto-detect">
+                    <input class = "checkBox" type="checkbox" id="auto-detect" name="auto-detect" onchange = "changLocationStatus()">
                     <div style = " margin-top: 30px;">
                         <input type="submit" class="searchButton"  value="Submit" />
                         <button class = "clearButton" onclick="clearform()">Clear</button>
@@ -294,6 +294,15 @@
         var searchResult;
         // var backend_base_url = "http://127.0.0.1:8080/";
         var backend_base_url = "https://pythonprojecthw6.wl.r.appspot.com/"
+
+        function changLocationStatus(){
+            if(document.getElementById("auto-detect").checked){
+                document.getElementById("location").disabled = true;
+            }else{
+                document.getElementById("location").disabled = false;
+            }
+
+        }
 
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
