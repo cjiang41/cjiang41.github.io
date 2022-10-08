@@ -244,7 +244,7 @@
                                 <option value="arts,All">Arts & Entertainment</option>
                                 <option value="health,All">Health & Medical</option>
                                 <option value="hotelstravel,All">Hotels & Travel</option>
-                                <option value="food, All">Food</option>
+                                <option value="food,All">Food</option>
                                 <option value="professional,All">Professional Services</option>
                             </select>
                         </div>
@@ -290,7 +290,7 @@
 
 
         </div>
-
+s
 
 
     <script>
@@ -435,7 +435,7 @@
 
                               
                                 var numTd = document.createElement("td");
-                                numTd.innerHTML = "No." + (i + 1);
+                                numTd.innerHTML = i + 1;
                                 newTableRow.appendChild(numTd);
 
                                 var imgTd = document.createElement("td");
@@ -528,7 +528,7 @@
 
             for(var i = 0; i < newRows.length; i++){
                 newRow = newRows[i];
-                newRow.children[0].innerHTML = "No." + (i + 1);
+                newRow.children[0].innerHTML = i + 1;
                 tableBody.appendChild(newRow);
             }
         }
