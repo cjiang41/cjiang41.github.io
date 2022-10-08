@@ -229,13 +229,13 @@
                 <form id = "searchFormID" onsubmit = "search(); return false" >
                     <div class = "textInput">
                         <label class = "searchForm" for = "keyword">Keyword <span style = "color:red">&#42 </span></label>
-                        <input class = "textBox" name="keyword" id = "keyword" type="text" size = "48" requried title = "Please fill out this field"> 
+                        <input class = "textBox" name="keyword" id = "keyword" type="text" size = "48"  title = "Please fill out this field" required> 
                     </div>
                     
                     <div style = "height: 70px;">
                         <div class = "textInput" style = " width: 150px; display: inline-block">
                             <label class = "searchForm" for = "distance">Distance(miles) </label>
-                            <input  class = "textBox" name="distance" id = "distance" type="text" value = 10 style = "width: 150px;" requried title = "Please fill out this field"> 
+                            <input  class = "textBox" name="distance" id = "distance" type="text" value = 10 style = "width: 150px;"  title = "Please fill out this field" required> 
                         </div>
                         <div style = "display: inline-block; margin-left: 215px; width:300px; margin-top:10px;">
                             <label class = "searchForm" for = "category">Category</label>
@@ -253,12 +253,12 @@
                   
                     <div class = "textInput" >
                         <label class = "searchForm" for = "location">Location <span style = "color:red">&#42 </span></label>
-                        <input class = "textBox" name="location" id = "location" type="text" size = "48" required title = "Please fill out this field">
+                        <input class = "textBox" name="location" id = "location" type="text" size = "48"  title = "Please fill out this field" required>
                     </div>
                 
                     <hr  class = "searchBox">
                     <label class = "checkBox" for = "auto-detect">Want us to auto-detect your location? Check here</label>
-                    <input class = "checkBox" type="checkbox" id="auto-detect" name="auto-detect" onchange = "changLocationStatus()">
+                    <input class = "checkBox" type="checkbox" id="auto-detect" name="auto-detect" onclick = "changLocationStatus()" >
                     <div style = " margin-top: 30px;">
                         <input type="submit" class="searchButton"  value="Submit" />
                         <button class = "clearButton" onclick="clearform()">Clear</button>
@@ -314,7 +314,15 @@ s
 
         function clearform(){
         // clear form
+
+            if(document.getElementById("auto-detect").checked){
+                document.getElementById("location").disabled = true;
+            }else{
+                document.getElementById("location").disabled = false;
+            }
+
             document.getElementById("searchFormID").reset();
+
             clearResultArea();
 
         }
@@ -325,6 +333,7 @@ s
             document.getElementById("tableHead").innerHTML = '';
             document.getElementById("tableBody").innerHTML = '';
             document.getElementById("detailArea").innerHTML = '';
+
 
         }
 
@@ -342,6 +351,16 @@ s
             console.log("category: " +category);
             console.log("distance: " +distance);
             console.log("location: " +location);
+
+
+
+            if(keyword == "" && location == ""){
+                document.getElementById("location").disabled = false;
+
+                return;
+            }
+
+
             if(document.getElementById("auto-detect").checked){
 
                 console.log("getting ip");
