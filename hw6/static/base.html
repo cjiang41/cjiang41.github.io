@@ -281,8 +281,6 @@
                     
                 </tbody>
             </table>
-
-
             <div id = "detailArea" style = "margin: 30px auto 0;; width: 830px; background-color: white;">
 
 
@@ -322,6 +320,7 @@ s
             }
 
             document.getElementById("searchFormID").reset();
+            document.getElementById("location").disabled = false;
 
             clearResultArea();
 
@@ -333,8 +332,7 @@ s
             document.getElementById("tableHead").innerHTML = '';
             document.getElementById("tableBody").innerHTML = '';
             document.getElementById("detailArea").innerHTML = '';
-
-
+            
         }
 
 
@@ -352,11 +350,7 @@ s
             console.log("distance: " +distance);
             console.log("location: " +location);
 
-
-
             if(keyword == "" && location == ""){
-                document.getElementById("location").disabled = false;
-
                 return;
             }
 
