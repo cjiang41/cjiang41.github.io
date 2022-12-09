@@ -1,0 +1,30 @@
+runtime: nodejs16
+service: default
+
+handlers:
+
+# - url: /
+#   static_files: dist/hw8frontend2/index.html
+#   upload: dist/hw8frontend2/index.html
+#   mime_type: text/html
+
+# - url: /(.*)
+#   static_files: dist/hw8frontend2/index.html
+#   upload: dist/hw8frontend2/index.html
+#   secure: always
+#   redirect_http_response_code: 301
+#   mime_type: text/javascript
+
+# - url: /
+#   static_dir: dist/hw8frontend2
+
+
+
+- url: /(.*\.(gif|png|jpg|less|json|woff|woff2|ttf|eot|scss|css|js|ico|svg)(|\.map))$
+  static_files: hw8frontend2/\1
+  upload: hw8frontend2/(.*)(|\.map)
+
+
+- url: /(.*)
+  static_files: hw8frontend2/index.html
+  upload: hw8frontend2/index.html

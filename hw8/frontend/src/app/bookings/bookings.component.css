@@ -1,0 +1,86 @@
+/* Add a black background color to the top navigation */
+.topnav {
+    overflow: hidden;
+    margin-right:5%;
+    margin-top:2vh;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: right;
+    color: black;
+    text-align: center;
+    padding: min(3vw,16px) min(3vh,14px);
+    text-decoration: none;
+    font-size: min(4vw,17px);
+  }
+  
+
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    border: black;
+    border-style: solid;
+    border-radius: 20%;
+    border-radius: 20px;
+    border-color: black;
+}
+
+
+#bookingsTable{
+    max-width: 1400px;
+
+    margin: auto;
+
+    text-align: center;
+
+
+    font-size: min(4vw,17px);
+
+    background-color: white;
+    border-radius: 20px;
+
+    vertical-align: baseline;
+
+}
+
+#noReservation{
+    background-color: white;
+    margin: 10% auto 10% auto;
+    border-radius:20px;
+    color: red;
+    width: min(80vw, 600px);
+    text-align: center;
+
+    font-size: min(6vw,30px);
+    font-weight:600;
+}
+
+
+
+
+
+th{
+    font-weight:500;
+}
+
+h1{
+    font-size: min(8vw,25px);
+    text-align: center;
+    font-weight:500;
+}
+
+
+table td img.trash {
+    
+    width: 5vw;
+    height: 5vw;
+    max-width: 30px;
+    max-height: 30px;
+
+}
+
+table td img.trash:hover {
+    cursor: pointer;
+  }
+

@@ -1,0 +1,34 @@
+
+
+<div>
+    <div class="row">
+        <div class = "col-12">
+            <table class="table table-striped" id = "resultTable">
+                <thead>
+                    <tr >
+                        <th class="col-1"> # </th>
+                        <th class="col-2"> Image </th>
+                        <th class="col-4"> Business Name </th>
+                        <th class="col-1"> Rating </th>
+                        <th class="col-3 text-break" > Distance (miles) </th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr *ngFor='let business of resultsToShow!["businesses"]; let i = index' (click) = "showDetail(business.id)">
+                        <td class="col-1">{{i + 1}} </td>
+                        <td class="col-2">
+                            <!-- <img width="90" height="90" src = {{business.image_url}} > -->
+                            <img  src = {{business.image_url}} >
+                        </td>
+                        <td class="col-4">{{business.name}}</td>
+                        <td class="col-1">{{business.rating}}</td>
+                        <td class="col-3">{{tranform(business.distance)}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+

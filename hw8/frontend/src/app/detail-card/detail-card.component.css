@@ -1,0 +1,149 @@
+
+.top2 { margin-top:2%; }
+
+.top3 { margin-top:3%; }
+
+.top5 { margin-top:5%; }
+
+.top7 { margin-top:7%; }
+
+.h4{
+    height: 4vh;
+}
+
+
+#tabs{
+    
+    margin:auto
+}
+
+#busiName{
+    margin: auto;
+    padding-top:2vh;
+    padding-bottom:4vh;
+    text-align: center;
+    font-size: min(10vw,30px);
+    font-weight:600;
+}
+
+#cardArea{
+    max-width: 1200px;
+    background-color: white;
+    margin:10% auto 10% auto;
+    width:90vw;
+    min-height: min(1000px, 90vh);
+    border-radius: 20px;
+}
+
+.detailCard{
+    text-align: center;
+    
+}
+
+b.cardSubTitle{
+
+    font-size: min(5vw, 24px);
+}
+
+p.cardText{
+    margin-top: 2%;
+    font-size: min(4vw,20px);
+    font-weight: 500;
+}
+
+a.cardText{
+    margin-top: 2%;
+    font-size: min(4vw,20x);
+    font-weight: 500;
+}
+
+.cardText{
+    font-size: min(4vw,20px);
+    font-weight: 500;
+}
+
+
+.carouselImage{
+    width: 80%;
+    margin: 0 auto;
+    height: 80vw;
+    max-height: 400px;
+    max-width:400px;
+    
+}
+.my-google-map{
+    margin-top:5%;
+
+}
+/* .carousel-inner > .item > img {
+    margin: 0 auto;
+  } */
+
+
+
+.carouselbox {
+    text-align: center;
+}
+
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    filter: invert(1);
+}
+
+.mat-tab-header{
+    background-color: #ffd73f;
+}
+
+.mat-tab-label{
+    font-size: min(4vw,20px);
+}
+
+.myGoogleMap{
+    max-height: 500px;
+}
+
+.reviewsTable{
+
+    font-size: min(4vw,20px);
+}
+
+
+.modal-title{
+    text-align:center;
+    margin:auto
+}
+
+#subButton{
+    margin:auto;
+    width: min(20vw, 100px);
+
+}
+
+#cancelButton{
+    margin:auto;
+    width: min(40vw, 200px);
+    height: 6vh;
+
+}
+
+#reserveButton{
+
+    margin:auto;
+    height: 6vh;
+
+    font-size: min(4vw,17px);
+    width:min(40vw, 200px);
+
+}
+
+
+
+img:hover{
+    cursor: pointer;
+  }
+
+
+.no-indicators .carousel-indicators {
+    display: none;
+}

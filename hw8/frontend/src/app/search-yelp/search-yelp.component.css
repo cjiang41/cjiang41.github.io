@@ -1,0 +1,115 @@
+#searchBox {
+
+    width:95vw;
+
+    border: 5px rgb(231, 228, 228);
+    /* border-style: outset; */
+    border-style: solid;
+    max-width: 900px;
+    background-color: white;
+    border-radius: 20px;
+    border-width:2px;
+    height:80vh;
+    max-height:600px;
+    margin: 6vh auto;
+
+
+
+}
+
+#noRecords{
+    background-color: white;
+    margin: 5% auto 10% auto;
+    border-radius:20px;
+    color: red;
+    width: min(80vw, 600px);
+    text-align: center;
+    vertical-align: middle;
+   
+
+    font-size: min(6vw,30px);
+    font-weight:600;
+    height:5vh;
+}
+
+
+h1{
+    margin:auto;
+    padding-top:5%;
+    padding-bottom:2%;
+    text-align:center;
+    font-size: min(8vw,25px);
+    font-weight:500;
+}
+
+#searchForm{
+
+    font-size: min(6vw,20px);
+
+}
+
+.top5 { margin-top:5vh; }
+.top4 { margin-top:4vh; }
+.top7 { margin-top:7%; }
+.top2 { margin-top:2vh; }
+.top1 { margin-top:1vh }
+
+.bottom2{
+    margin-bottom:2vh;
+}
+
+.width90{
+    width:90%;
+}
+
+.topnav {
+    overflow: hidden;
+    margin-right:5%;
+    margin-top:2vh;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: right;
+    color: black;
+    text-align: center;
+    padding: min(3vw,16px) min(3vh,14px);
+    text-decoration: none;
+    font-size: min(4vw,17px);
+
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    border: black;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: black;
+  }
+
+input{
+    font-size: min(6vw,20px);
+}
+select{
+    font-size: min(6vw,20px);
+    font-weight:500;
+}
+
+
+#submitButton{
+width:min(30vw, 120px);
+height: min(8vh, 60px);
+font-size: min(8vw,25px);
+font-weight:500;
+
+}
+
+
+#clearButton{
+    width:min(20vw, 100px);
+    height: min(8vh, 60px);
+    font-size: min(8vw,25px);
+    font-weight:500;
+    margin-left:3vh;
+    
+    }

@@ -1,0 +1,62 @@
+
+<div style = "min-width:100%; min-height: 100vh">
+    <div class="topnav">
+        <nav>
+            <a  class="active" routerLink="/bookings">My bookings</a>
+            <a  routerLink="/search">Search</a>
+        </nav>
+    </div>
+    
+    
+    <div *ngIf = " allStorage().length != 0">
+    
+        <h1 >List of your Reservations</h1>
+        <div class="row">
+            <div class = "col-12">
+                <table class="table table-hover" id = "bookingsTable">
+                    <thead>
+                        <tr >
+                            <th class="col-1"> # </th>
+                            <th class="col-2"> Business Name </th>
+                            <th class="col-2"> Date </th>
+                            <th class="col-2"> Time </th>
+                            <th class="col-4" >Email </th>
+                            <th class="col-1"> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let reservation of allStorage(); let i = index'>
+                            <td class="col-1">{{i + 1}}</td>
+                            <td class="col-2">{{reservation.name}}</td>
+                            <td class="col-2">{{reservation.date}}</td>
+                            <td class="col-2">{{reservation.time}}</td>
+                            <td class="col-4">{{reservation.email}}</td>
+                            <td class="col-1">
+                                <img class = "trash" src = "../../assets/trash.png" (click) = "cancel(reservation.id)">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+    
+            </div>
+        </div>
+    </div>
+    <div *ngIf = " allStorage().length === 0" id = "noReservation">
+        <p>No reservations to show </p>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

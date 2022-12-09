@@ -1,0 +1,5 @@
+body {
+    background-image: url("../assets/city.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }

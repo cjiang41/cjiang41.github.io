@@ -1,0 +1,91 @@
+
+<div class="topnav">
+    <nav>
+        <a routerLink="/bookings">My bookings</a>
+        <a class="active" routerLink="/search">Search</a>
+    </nav>
+</div>
+
+
+
+<form [formGroup]= "searchForm" (ngSubmit)="onSubmit()" ngNativeValidate id = "searchForm" #formArea>
+    <div id = "searchBox">
+        <div class = "container-sm" style = "width:90%; margin:auto" >
+            <h1> Business Search</h1>
+
+            <div class="row top1">
+                <div class="col-sm-12">
+                    <label for="keyword">Keyword  <span style = "color:red">&#42;</span></label>
+                    <input type="text" class="form-control top1" id="keyword"  formControlName = "keyword" [matAutocomplete]="auto" required>
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let keyword of autoKeywords" [value]="keyword">
+                        {{keyword}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </div>
+            </div>
+    
+            <div class="row top2">
+                <div class="col-sm-6">
+                    <label for="distance" >Distance</label>
+                    <input type="text" class="form-control top1 bottom2" id="distance" formControlName = "distance"  required >
+                </div>
+                <div class="col-sm-6">
+                    <label for="category">Category <span style = "color:red">&#42;</span></label>
+                    <select id="category" class="form-select top1 bottom2" formControlName = "categories" >
+                        <option *ngFor="let option of categoryOptions" [ngValue]="option.value">{{ option.category }}</option>
+                    </select>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-sm-12">
+                <label for="location">Location <span style = "color:red">&#42;</span></label>
+                <input type="text" class="form-control top1" id="location"  formControlName = "location" required>
+                </div>
+            </div>
+    
+            <div class="row top2">
+                <div class="col-sm-12 ">
+                    <div class = "form-check">
+                        <input class="form-check-input top1" type="checkbox" id="autoDetect" formControlName = "autoDetect" (click) = "checkAutoDetect()" name = "autoDetect">
+                        <label class="form-check-label top1" for="autoDetect">
+                            Auto-detect my location
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row top4">
+                <div class = "col" style = "text-align:center">
+                    <button type="submit" class="btn btn-danger" id = "submitButton">Submit</button>
+                    <button type="clear" class="btn btn-primary" id = "clearButton" (click) = "clear()">Clear</button>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+</form>
+
+
+<!-- <app-result-table [showTable]="showResultTable" > -->
+<div *ngIf = "showNoResult" id="noRecords" ><p style = "padding-top:1vh;">No record has been found</p></div>
+
+<div #tableArea>
+    <div *ngIf = "showResultTable" > 
+        <app-result-table  [resultsToShow] = "searchResults" (showDetailEvent)="getAndShowDetail($event)"></app-result-table>
+    </div>
+</div>
+
+<div #detailArea>
+    <div *ngIf = "showDetail"  id = "detailArea">
+        <app-detail-card [details] = "bisDetails" [reviews] = "bisReviews" (showTableEvent)="showTable()" ></app-detail-card>
+    </div>
+</div>
+
+<div style = "height:10px;"></div>
+
+
+
+

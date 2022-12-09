@@ -1,0 +1,35 @@
+#resultTable{
+
+    max-width: 1400px;
+
+    width:95vw;
+
+    margin: auto;
+
+    text-align: center;
+
+    background-color: white;
+
+    border-radius: 4px;
+
+    font-size:min(4vw, 20px);
+
+    margin-top:5vh;
+
+}
+
+
+
+img {
+    
+    width: 15vw;
+    height: 15vw;
+    max-width: 100px;
+    max-height: 100px;
+
+  }
+
+
+  table td:hover {
+    cursor: pointer;
+  }
